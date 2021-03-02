@@ -1,4 +1,5 @@
 import React from 'react';
+//import {Link} from 'react-router-dom';
 
 const UserItem = ({user}) => {
     return ( 
@@ -6,13 +7,13 @@ const UserItem = ({user}) => {
             <div className="card">
                 <div className="card-image">
                     <img src={user.avatar_url} alt="github user" />
-                    <span className="card-title">{user.login}</span>
+                    <span className="card-title"><b> {user.login} </b></span>
                 </div>
                 <div className="card-content">
                     <p>Use the link below to navigate to user's github profile</p>
                 </div>
                 <div className="card-action">
-                    <a href="#">View profile</a>
+                    <a href={user.html_url}>View profile</a>
                 </div>
             </div>
         </div>

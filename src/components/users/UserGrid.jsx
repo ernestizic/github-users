@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '../ui/Spinner';
 import UserItem from './UserItem';
 
 const UserGrid = ({users}) => {
@@ -9,10 +10,10 @@ const UserGrid = ({users}) => {
         ))
         
     ) : (
-        <h3> Loading... </h3>
+        <Spinner />
     )
     return ( 
-        <div className="row">
+        <div className="row user-grid">
             {allUsers}
         </div>
      );

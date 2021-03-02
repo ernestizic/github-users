@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import Header from "./components/ui/Header";
 import UserGrid from './components/users/UserGrid';
+import {BrowserRouter} from 'react-router-dom';
 
 class App extends Component {
   state = { 
@@ -17,10 +18,12 @@ class App extends Component {
 
   render() { 
     return ( 
-      <div className="App container-fluid">
-        <Header />
-        <UserGrid users={this.state.users} />
-      </div>
+      <BrowserRouter>
+        <div className="App container-fluid">
+          <Header />
+          <UserGrid users={this.state.users} />
+        </div>
+      </BrowserRouter>
      );
   }
 }
