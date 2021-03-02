@@ -2,28 +2,32 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import Header from "./components/ui/Header";
 import UserGrid from './components/users/UserGrid';
-import {BrowserRouter} from 'react-router-dom';
+import Searchbar from './components/ui/Searchbar';
 
 class App extends Component {
   state = { 
-    users: []
+    users: [],
+    searchText: ""
    }
 
    componentDidMount() {
-     axios.get('https://api.github.com/users')
+     axios.get(`https://api.github.com/users`)
       .then(res => 
         //console.log(res.data))
-        this.setState({users: res.data.slice(0, 10)}))
+        this.setState({users: res.data}))
    }
 
+
   render() { 
+    const filteredUsers = this.state.users.filter(user => (
+        user.login.toLowerCase().includes(this.state.searchText.toLowerCase())
+    ))
     return ( 
-      <BrowserRouter>
-        <div className="App container-fluid">
-          <Header />
-          <UserGrid users={this.state.users} />
-        </div>
-      </BrowserRouter>
+      <div className="App container-fluid">
+        <Header />
+        <Searchbar onChange={(e)=> this.setState({ searchText: e.target.value })} />
+        <UserGrid users={filteredUsers} />
+      </div>
      );
   }
 }

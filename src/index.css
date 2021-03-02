@@ -13,3 +13,10 @@ body {
 .spinner-div{
   padding-top: 80px;
 }
+.searchbar{
+  max-width: 60%;
+  margin: 30px auto;
+}
+#search{
+  padding-left: 20px;
+}
