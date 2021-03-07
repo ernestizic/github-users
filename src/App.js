@@ -17,6 +17,11 @@ class App extends Component {
         this.setState({users: res.data}))
    }
 
+   componentDidUpdate(prevProps, prevState){
+      console.log('component updated');
+      console.log(prevProps, prevState);
+   }
+
 
   render() { 
     const filteredUsers = this.state.users.filter(user => (
