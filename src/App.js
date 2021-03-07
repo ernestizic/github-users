@@ -13,13 +13,7 @@ class App extends Component {
    componentDidMount() {
      axios.get(`https://api.github.com/users`)
       .then(res => 
-        //console.log(res.data))
         this.setState({users: res.data}))
-   }
-
-   componentDidUpdate(prevProps, prevState){
-      console.log('component updated');
-      console.log(prevProps, prevState);
    }
 
 

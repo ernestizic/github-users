@@ -1,5 +1,4 @@
 import React from 'react';
-//import {Link} from 'react-router-dom';
 
 const UserItem = ({user}) => {
     return ( 
@@ -21,5 +20,3 @@ const UserItem = ({user}) => {
 }
  
 export default UserItem;
-//html_url for the link to each github profile
-//login for their name
