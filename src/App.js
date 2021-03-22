@@ -1,34 +1,25 @@
-import axios from 'axios';
-import React, { Component } from 'react';
 import Header from "./components/ui/Header";
-import UserGrid from './components/users/UserGrid';
 import Searchbar from './components/ui/Searchbar';
 
-class App extends Component {
-  state = { 
-    users: [],
-    searchText: ""
-   }
 
-   componentDidMount() {
-     axios.get(`https://api.github.com/users`)
-      .then(res => 
-        this.setState({users: res.data}))
-   }
+const App = () => {
 
+  {/*
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const result = await axios(`https://api.github.com/users`)
+      setUsers(result.data)
+    }
+    fetchUsers()
+  }, [])
+  */}
 
-  render() { 
-    const filteredUsers = this.state.users.filter(user => (
-        user.login.toLowerCase().includes(this.state.searchText.toLowerCase())
-    ))
-    return ( 
-      <div className="App container-fluid">
-        <Header />
-        <Searchbar onChange={(e)=> this.setState({ searchText: e.target.value })} />
-        <UserGrid users={filteredUsers} />
-      </div>
-     );
-  }
+  return ( 
+    <div className="App container-fluid">
+      <Header />
+      <Searchbar/>
+    </div>
+   );
 }
  
 export default App;
