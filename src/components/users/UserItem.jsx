@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserItem = ({user}) => {
     return ( 
-        <div className="col s3 user">
+        <div className="col s12 m6 l3 user">
             <div className="card">
                 <div className="card-image">
                     <img src={user.avatar_url} alt="github user" />
