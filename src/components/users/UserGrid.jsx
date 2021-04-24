@@ -1,8 +1,7 @@
 import React from 'react';
-import Spinner from '../ui/Spinner';
 import UserItem from './UserItem';
 
-const UserGrid = ({users, count}) => {
+const UserGrid = ({users, count, loading}) => {
 
     let allUsers = users.length ? (
         users.map((user) => (
@@ -10,7 +9,7 @@ const UserGrid = ({users, count}) => {
         ))
         
     ) : (
-        <Spinner />
+        <div className="empty"><p>Nothing to see here. <b>Search for users to see result</b></p></div>
     )
     return ( 
         <div>

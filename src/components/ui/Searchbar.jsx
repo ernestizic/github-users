@@ -6,6 +6,7 @@ import UserGrid from '../users/UserGrid';
 const Searchbar = (props) => {
 
     const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [text, setText] = useState("");
     const [count, setCount] = useState('')
 
@@ -23,9 +24,11 @@ const Searchbar = (props) => {
         e.preventDefault();
         axios.get(`https://api.github.com/search/users?q=${text}`)
         .then(res => {
-            console.log(res.data)
-            setUsers(res.data.items)
-            setCount(res.data.total_count)
+            //console.log(res.data)
+            setLoading(true);
+            setUsers(res.data.items);
+            setCount(res.data.total_count);
+            setLoading(false);
         })
     }
 
@@ -39,7 +42,7 @@ const Searchbar = (props) => {
                     <i className="material-icons red-text">x</i>
                 </div>
             </form>
-            <UserGrid users={users} count={count} />
+            <UserGrid users={users} count={count} loading={loading}/>
         </div>
         
      );
